@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,7 +6,6 @@
 <title>ASTRAL FILES | Honkai Star Rail</title>
 
 <style>
-/* ===== COLORES PRINCIPALES ===== */
 :root {
   --azul: #1649eb;
   --negro: #111;
@@ -27,10 +25,8 @@ body {
 }
 
 button, input { font: inherit; }
-
 button { cursor: pointer; }
 
-/* ===== BARRA SUPERIOR ===== */
 header {
   background: white;
   border-bottom: 3px solid black;
@@ -61,7 +57,6 @@ header a {
   font-size: 12px;
 }
 
-/* ===== PORTADA Y BANNER ===== */
 .hero {
   padding: 40px 5% 55px;
   background: white;
@@ -144,7 +139,6 @@ header a {
   color: #444;
 }
 
-/* ===== CATÁLOGO ===== */
 main {
   max-width: 1250px;
   margin: auto;
@@ -171,11 +165,10 @@ main {
 .grid {
   display: grid;
   grid-template-columns:
-    repeat(auto-fit, minmax(230px, 1fr));
+    repeat(auto-fill, minmax(min(230px, 100%), 1fr));
   gap: 25px;
 }
 
-/* ===== TARJETAS ===== */
 .card {
   background: white;
   border: 2px solid black;
@@ -225,7 +218,9 @@ main {
   overflow-wrap: anywhere;
 }
 
-.card-contenido { padding: 18px; }
+.card-contenido {
+  padding: 18px;
+}
 
 .card h3 {
   margin: 0 0 8px;
@@ -258,7 +253,6 @@ main {
   border-color: var(--azul);
 }
 
-/* ===== VENTANA DE GUÍA ===== */
 #guia {
   display: none;
   background: white;
@@ -316,11 +310,10 @@ main {
   margin-top: 35px;
 }
 
-/* ===== EQUIPOS ===== */
 .equipos {
   display: grid;
   grid-template-columns:
-    repeat(auto-fit, minmax(260px, 1fr));
+    repeat(auto-fit, minmax(min(260px, 100%), 1fr));
   gap: 18px;
 }
 
@@ -353,11 +346,10 @@ main {
   align-items: center;
 }
 
-/* ===== EIDOLONES ===== */
 .eidolones {
   display: grid;
   grid-template-columns:
-    repeat(auto-fit, minmax(190px, 1fr));
+    repeat(auto-fit, minmax(min(190px, 100%), 1fr));
   gap: 15px;
 }
 
@@ -421,19 +413,9 @@ footer {
     HONKAI: STAR RAIL // CHARACTER DATABASE
   </div>
 
-  <!-- ==========================================
-       CAMBIAR IMAGEN DEL BANNER AQUÍ
-
-       Sube una imagen llamada banner.jpg
-       al mismo lugar que index.html.
-
-       Tamaño recomendado: 1500 x 500 píxeles.
-       También puedes poner una URL directa.
-       ========================================== -->
-
   <div class="ventana">
     <div class="ventana-barra">
-      <span>FILE_00 / COVER.JPG</span>
+      <span>FILE_00 . . . BANNER LOADING ⟳</span>
       <span>— □ ×</span>
     </div>
 
@@ -527,15 +509,6 @@ footer {
 
 <script>
 
-/* =============================================
-   PERSONAJES Y SUS IMÁGENES
-
-   CAMBIA LOS NOMBRES DE LOS ARCHIVOS .jpg
-   O COLOCA EN SU LUGAR UN LINK DIRECTO HTTPS.
-
-   ¡PUEDES EDITAR LOS DATOS DE CADA PERSONAJE!
-   ============================================= */
-
 const personajes = [
 
   {
@@ -543,20 +516,25 @@ const personajes = [
     via: "Destrucción",
     elemento: "Físico",
 
-    // CAMBIAR IMAGEN DE PHAINON AQUÍ
     imagen: "phainon.jpg",
 
     resumen: "Atacante principal orientado a composiciones de alta inversión.",
 
     descripcion:
       "Phainon desempeña el papel de DPS principal. " +
-      "Su inversión se centra en maximizar su rendimiento ofensivo.",
+      "Su inversión vertical es prioritaria ante la horizontal, ya que se centra en maximizar su rendimiento ofensivo.",
 
     equipos: [
       {
         nombre: "Composición principal",
         integrantes: [
           "Phainon", "Cyrene", "Cerydra", "Robin"
+        ]
+      },
+      {
+        nombre: "Composición sin Reminiscencia",
+        integrantes: [
+          "Phainon", "Sparkle", "Cerydra", "Trazacaminos (Reminiscencia)"
         ]
       }
     ],
@@ -569,14 +547,14 @@ const personajes = [
       {
         nivel: "E1",
         texto:
-          "Inversión de baja prioridad. Su mejora no " +
-          "justifica especialmente el coste de obtenerla."
+          "Inversión de baja prioridad. Solo es útil " +
+          "si se planea en conseguir su E2 después."
       },
       {
         nivel: "E2",
         texto:
-          "Principal objetivo de inversión vertical. " +
-          "Representa la mejora más recomendable.",
+          "La mejor inversión de todas en sus equipos. " +
+          "Representa un cambio total del personaje.",
         destacado: true
       }
     ]
@@ -587,14 +565,13 @@ const personajes = [
     via: "Reminiscencia",
     elemento: "Hielo",
 
-    // CAMBIAR IMAGEN DE CYRENE AQUÍ
     imagen: "cyrene.jpg",
 
-    resumen: "Apoyo especializado en composiciones de Reminiscencia.",
+    resumen: "Apoyo especializado para los Herederos de Chrysos.",
 
     descripcion:
-      "Cyrene destaca por su integración en equipos " +
-      "centrados en las sinergias de Reminiscencia.",
+      "Cyrene destaca, pero no se limita, por su integración en " +
+      "equipos centrados en las sinergias de Reminiscencia.",
 
     equipos: [
       {
@@ -622,7 +599,8 @@ const personajes = [
         nivel: "E1",
         texto:
           "Prioridad reducida. No constituye una mejora " +
-          "especialmente recomendable."
+          "especialmente recomendable.",
+        destacado: true
       },
       {
         nivel: "E2",
@@ -641,15 +619,14 @@ const personajes = [
     via: "Armonía",
     elemento: "Viento",
 
-    // CAMBIAR IMAGEN DE CERYDRA AQUÍ
     imagen: "cerydra.jpg",
 
-    resumen: "Personaje de apoyo para composiciones con Phainon y Anaxa.",
+    resumen: "Personaje de apoyo para composiciones nichos de DPAVs basados en SP.",
 
     descripcion:
       "Cerydra proporciona apoyo a distintos " +
-      "atacantes principales y dispone de una " +
-      "prioridad clara de inversión vertical.",
+      "HC principales y dispone de una decente " +
+      "inversión vertical.",
 
     equipos: [
       {
@@ -685,20 +662,19 @@ const personajes = [
         texto:
           "Mejora adicional de carácter opcional. " +
           "No resulta imprescindible para " +
-          "aprovechar su potencial."
+          "aprovechar su potencial como soporte."
       }
     ]
   },
 
   {
     nombre: "Robin Summeretto",
-    via: "Armonía",
-    elemento: "Físico",
+    via: "Reminiscencia",
+    elemento: "Viento",
 
-    // CAMBIAR IMAGEN DE ROBIN SUMMERETTO AQUÍ
     imagen: "robin-summeretto.jpg",
 
-    resumen: "Apoyo con mejoras relevantes de inversión vertical.",
+    resumen: "Soporte generalista con mejoras relevantes de inversión vertical.",
 
     descripcion:
       "Robin Summeretto ofrece distintas posibilidades " +
@@ -707,10 +683,17 @@ const personajes = [
 
     equipos: [
       {
-        nombre: "Equipo recomendado",
+        nombre: "Equipo con Himenova",
         integrantes: [
           "Himeko Nova", "Robin Summeretto",
-          "Sparkle", "Dan Heng Permansor Terrae"
+          "Welt", "Dan Heng Permansor-Terrae"
+        ]
+      },
+      {
+        nombre: "Equipo con Asvheil",
+        integrantes: [
+          "Ashveil", "Mortenax Blade",
+          "Robin Summeretto", "Hyacine"
         ]
       }
     ],
@@ -723,28 +706,20 @@ const personajes = [
       {
         nivel: "E1",
         texto:
-          "Mejora de elevado valor general. Sin embargo, " +
-          "su contribución específica dentro de " +
-          "composiciones de Phainon es limitada."
-      },
+          "Mejora de elevado valor general. Exceptuando " +
+          "lo que es el equipo de Phainon." +      },
       {
         nivel: "E2",
         texto:
           "Mejora significativa y especialmente " +
           "recomendable si se busca potenciar " +
-          "un equipo centrado en Phainon.",
+          "a un HC.",
         destacado: true
       }
     ]
   }
 
 ];
-
-/* =============================================
-   FUNCIONES DE LA PÁGINA
-
-   NO NECESITAS MODIFICAR ESTA PARTE.
-   ============================================= */
 
 const contenedor = document.getElementById("tarjetas");
 const buscador = document.getElementById("busqueda");
@@ -764,7 +739,7 @@ function mostrarPersonajes() {
 
   personajes
     .filter(p => p.nombre.toLowerCase().includes(busqueda))
-    .forEach((p, indice) => {
+    .forEach((p) => {
 
       const card = crearElemento("article", "card");
 
