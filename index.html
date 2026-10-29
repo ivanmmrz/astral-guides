@@ -813,7 +813,6 @@ const personajes = [
         texto:
           "Prioridad reducida. No constituye una mejora " +
           "especialmente recomendable.",
-        destacado: true
       },
       {
         nivel: "E2",
@@ -953,7 +952,7 @@ function mostrarPersonajes() {
   const busqueda = buscador.value.toLowerCase();
 
   personajes
-    .filter(p => p.nombre.toLowerCase().includes(busqueda))
+    .filter(p => p.nombre.toLowerCase().startsWith(busqueda))
     .sort((a, b) => a.nombre.localeCompare(b.nombre, "es"))
     .forEach((p) => {
 
