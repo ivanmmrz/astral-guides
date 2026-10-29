@@ -510,8 +510,221 @@ footer {
 <script>
 
 const personajes = [
+ 
+  {
+    nombre: "Silver Wolf LV.999",
+    via: "Exultación",
+    elemento: "Imaginario",
+
+    imagen: "sw999.jpg",
+
+    resumen: "Gran fuente de daño en área, requiriendo una alta velocidad para obtener su potencial.",
+
+    descripcion:
+      "Silver Wolf LV.999 es una HC de Exultación " +
+      "que combina su daño propio con mecánicas " +
+      "basadas en la obtención de MMR.",
+
+    equipos: [
+      {
+        nombre: "Composición principal",
+        integrantes: [
+          "Silver Wolf LV.999", "Yao Guang",
+          "AHA", "Pearl"
+        ]
+      },
+      {
+        nombre: "Composición alternativa",
+        integrantes: [
+          "Silver Wolf LV.999", "Yao Guang",
+          "Sparxie", "Pearl"
+        ]
+      }
+    ],
+
+    eidolones: [
+      {
+        nivel: "E0",
+        texto: "Configuración base del personaje."
+      },
+      {
+        nivel: "E1",
+        texto:
+          "Ayuda con el MMR, pero no es tan bueno " +
+          "frente a otras opciones de inversión."
+      },
+      {
+        nivel: "E2",
+        texto:
+          "Una de las mejores inversiones de sus equipos, " +
+          "garantiza una buena cantidad de turnos extra.",
+        destacado: true
+      }
+    ]
+  },
 
   {
+    nombre: "Firefly",
+    via: "Destrucción",
+    elemento: "Fuego",
+
+    imagen: "firefly.jpg",
+
+    resumen: "Atacante especializada en daño de ruptura / superruptura.",
+
+    descripcion:
+      "Firefly es una DPS centrada en aprovechar " +
+      "la ruptura de debilidad de los enemigos. " +
+      "Su rendimiento depende de las sinergias " +
+      "con personajes que potencian la superruptura.",
+
+    equipos: [
+      {
+        nombre: "Equipo de superruptura",
+        integrantes: [
+          "Firefly", "The Dahlia",
+          "Ruan Mei", "Fugue"
+        ]
+      },
+      {
+        nombre: "Composición alternativa",
+        integrantes: [
+          "Firefly", "The Dahlia",
+          "Trazacaminos (Armonía)", "Fugue"
+        ]
+      }
+    ],
+
+    eidolones: [
+      {
+        nivel: "E0",
+        texto: "Configuración base para equipos de ruptura."
+      },
+      {
+        nivel: "E1",
+        texto:
+          "Mejora la comodidad de SP, pero no " +
+          "es priotaria como lo es su E2.",
+      },
+      {
+        nivel: "E2",
+        texto:
+          "Inversión ofensiva significativa " +
+          "que permite aumentar su frecuencia " +
+          "de acción de forma constante.",
+        destacado: true
+      }
+    ]
+  },
+
+  {
+    nombre: "Ashveil",
+    via: "Cacería",
+    elemento: "Rayo",
+
+    imagen: "ashveil.jpg",
+
+    resumen: "DPS y Sub-DPS de Cacería especializado en eliminar objetivos prioritarios.",
+
+    descripcion:
+      "Ashveil es versátil frente a su rol. " +
+      "Su orientación ofensiva favorece los enfrentamientos " +
+      "contra enemigos, de manera single-target, y equipos " +
+      "que potencian su daño.",
+
+    equipos: [
+      {
+        nombre: "Composición DPS",
+        integrantes: [
+          "Ashveil", "Mortenax Blade",
+          "Robin Summeretto", "Hyacine"
+        ]
+      },
+      {
+        nombre: "Composición sub-DPS",
+        integrantes: [
+          "Aventurine Waveflair", "Asvheil",
+          "Mortenax Blade", "Hyacine"
+        ]
+      }
+    ],
+
+    eidolones: [
+      {
+        nivel: "E0",
+        texto: "Configuración base del personaje."
+      },
+      {
+        nivel: "E1",
+        texto:
+          "Mejora adicional para todo el equipo. " +
+          "Decente en la mayoría de situaciones.",
+        destacado: true
+      },
+      {
+        nivel: "E2",
+        texto:
+          "Opción de inversión, no tan grande, para quienes " +
+          "buscan ampliar su potencial ofensivo como DPS."
+      }
+    ]
+  },
+
+  {
+    nombre: "Evernight",
+    via: "Reminiscencia",
+    elemento: "Hielo",
+
+    imagen: "evernight.jpg",
+
+    resumen: "Atacante de Reminiscencia con sinergias centradas en los mnemoduendes.",
+
+    descripcion:
+      "Evernight destaca por su integración en " +
+      "equipos de Reminiscencia, con un buen aporte " +
+      "en composiciones que aprovechan las " +
+      "interacciones con mnemoduendes.",
+
+    equipos: [
+      {
+        nombre: "Composición sub-DPS",
+        integrantes: [
+          "Castorice", "Evernight",
+          "Cyrene", "Hyacine"
+        ]
+      },
+      {
+        nombre: "Composición DPS",
+        integrantes: [
+          "Evernight", "Cyrene",
+          "Robin Summeretto", "Hyacine"
+        ]
+      }
+    ],
+
+    eidolones: [
+      {
+        nivel: "E0",
+        texto: "Configuración base del personaje."
+      },
+      {
+        nivel: "E1",
+        texto:
+          "Otorga un valor significativo " +
+          "a todos los miembros del equipo.",
+        destacado: true
+      },
+      {
+        nivel: "E2",
+        texto:
+          "Inversión enorme que ayuda a llevar al " +
+          "máximo su rendimiento como DPS.",
+        destacado: true
+      }
+    ]
+  },
+
+   {
     nombre: "Phainon",
     via: "Destrucción",
     elemento: "Físico",
@@ -707,7 +920,8 @@ const personajes = [
         nivel: "E1",
         texto:
           "Mejora de elevado valor general. Exceptuando " +
-          "lo que es el equipo de Phainon."      
+          "lo que es el equipo de Phainon.",
+        destacado: true
       },
       {
         nivel: "E2",
@@ -740,6 +954,7 @@ function mostrarPersonajes() {
 
   personajes
     .filter(p => p.nombre.toLowerCase().includes(busqueda))
+    .sort((a, b) => a.nombre.localeCompare(b.nombre, "es"))
     .forEach((p) => {
 
       const card = crearElemento("article", "card");
