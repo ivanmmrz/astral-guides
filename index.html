@@ -1,241 +1,894 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Guías de personajes, equipos y eidolones de Honkai: Star Rail.">
-  <title>Astral Guides | Honkai: Star Rail</title>
-  <style>
-    :root { color-scheme: dark; --bg:#0b1020; --panel:#171e32; --panel2:#202942; --border:#35405d; --gold:#f2d28e; --text:#f3f5ff; --muted:#aeb9d1; --accent:#a4b9ff; }
-    * { box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
-    body { margin:0; background:radial-gradient(circle at top right,#233456 0,transparent 37%),var(--bg); color:var(--text); font-family:system-ui,-apple-system,Segoe UI,sans-serif; line-height:1.55; min-height:100vh; }
-    .wrap { max-width:1100px; margin:0 auto; padding:0 22px; }
-    header { border-bottom:1px solid var(--border); background:#0b1020c9; }
-    nav { display:flex; align-items:center; justify-content:space-between; gap:14px; padding:18px 0; flex-wrap:wrap; }
-    .brand { font-weight:800; letter-spacing:.5px; color:var(--gold); font-size:1.15rem; }
-    nav a { color:var(--muted); text-decoration:none; font-size:.95rem; }
-    nav a:hover { color:white; }
-    .hero { padding:68px 0 48px; }
-    .eyebrow { color:var(--gold); letter-spacing:2px; font-weight:700; font-size:.77rem; }
-    h1 { font-size:clamp(2rem,6vw,3.8rem); line-height:1.12; margin:12px 0 14px; }
-    .hero p { color:var(--muted); max-width:690px; font-size:1.08rem; }
-    .note { background:#342a28; border:1px solid #8e7050; padding:12px 16px; border-radius:12px; font-size:.91rem; color:#f7e4be; margin:20px 0; }
-    h2 { margin:0 0 8px; font-size:1.65rem; }
-    .section-intro { color:var(--muted); margin:0 0 20px; }
-    .toolbar { display:flex; gap:12px; margin:24px 0; flex-wrap:wrap; }
-    input, select { background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:14px; color:var(--text); font:inherit; }
-    input { flex:2; min-width:220px; }
-    select { flex:1; min-width:190px; }
-    input:focus,select:focus,button:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
-    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(245px,1fr)); gap:18px; }
-    .card { background:linear-gradient(160deg,var(--panel2),var(--panel)); border:1px solid var(--border); border-radius:17px; padding:22px; display:flex; flex-direction:column; min-height:255px; }
-    .card:hover { border-color:var(--gold); }
-    .avatar { width:57px; height:57px; display:grid; place-items:center; border-radius:15px; background:#39476a; font-size:1.75rem; margin-bottom:14px; }
-    .card h3 { margin:0 0 5px; font-size:1.25rem; }
-    .meta { color:var(--gold); font-size:.87rem; margin:0 0 12px; }
-    .card p.summary { color:var(--muted); margin:0 0 20px; flex:1; font-size:.93rem; }
-    button { cursor:pointer; font:inherit; }
-    .btn { border:0; background:var(--gold); color:#242033; font-weight:750; border-radius:10px; padding:11px 17px; }
-    .btn:hover { background:#ffe5a9; }
-    .guide { background:var(--panel); border:1px solid var(--border); border-radius:20px; padding:clamp(20px,4vw,36px); margin:34px 0 58px; }
-    .guide[hidden], #empty[hidden] { display:none; }
-    .guide-heading { display:flex; justify-content:space-between; align-items:start; gap:14px; flex-wrap:wrap; }
-    .guide h3 { color:var(--gold); margin:24px 0 10px; }
-    .guide p { color:var(--muted); }
-    .team { background:var(--panel2); border:1px solid var(--border); padding:16px; border-radius:13px; margin-bottom:12px; }
-    .team strong { color:white; }
-    .team span { display:block; color:var(--muted); margin-top:5px; }
-    .eidolons { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; }
-    .eidolon { background:var(--panel2); border:1px solid var(--border); border-radius:12px; padding:15px; }
-    .eidolon b { color:var(--gold); }
-    .eidolon p { margin:7px 0 0; font-size:.92rem; }
-    .guide .close { background:transparent; border:1px solid var(--border); color:var(--text); padding:8px 12px; border-radius:10px; }
-    footer { border-top:1px solid var(--border); padding:25px 0; color:var(--muted); font-size:.88rem; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ASTRAL FILES | Honkai Star Rail</title>
+
+<style>
+/* ===== COLORES PRINCIPALES ===== */
+:root {
+  --azul: #1649eb;
+  --negro: #111;
+  --blanco: #fff;
+  --gris: #f0f0f0;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--gris);
+  color: var(--negro);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button, input { font: inherit; }
+
+button { cursor: pointer; }
+
+/* ===== BARRA SUPERIOR ===== */
+header {
+  background: white;
+  border-bottom: 3px solid black;
+  padding: 16px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.logo span {
+  background: var(--azul);
+  color: white;
+  padding: 7px;
+  margin-right: 8px;
+}
+
+header a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+/* ===== PORTADA Y BANNER ===== */
+.hero {
+  padding: 40px 5% 55px;
+  background: white;
+  border-bottom: 3px solid black;
+}
+
+.etiqueta {
+  font: bold 12px monospace;
+  letter-spacing: 2px;
+  color: var(--azul);
+  margin-bottom: 16px;
+}
+
+.ventana {
+  border: 3px solid black;
+  box-shadow: 10px 10px 0 var(--azul);
+  background: white;
+  margin-bottom: 40px;
+}
+
+.ventana-barra {
+  background: black;
+  color: white;
+  padding: 9px 12px;
+  font: 13px monospace;
+  display: flex;
+  justify-content: space-between;
+}
+
+.banner-area {
+  height: clamp(170px, 32vw, 380px);
+  background:
+    linear-gradient(110deg,
+      white 0%,
+      white 33%,
+      #1649eb 33%,
+      #1649eb 65%,
+      black 65%,
+      black 71%,
+      white 71%);
+  position: relative;
+}
+
+.banner-area img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+}
+
+.banner-fondo {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: clamp(30px, 8vw, 90px);
+  font-weight: 900;
+  color: white;
+  text-shadow: 4px 4px black;
+  letter-spacing: -4px;
+}
+
+.hero h1 {
+  font-size: clamp(55px, 11vw, 140px);
+  line-height: .85;
+  letter-spacing: -7px;
+  margin: 0 0 25px;
+  font-weight: 900;
+}
+
+.hero h1 span {
+  color: white;
+  -webkit-text-stroke: 2px black;
+}
+
+.hero p {
+  max-width: 620px;
+  line-height: 1.7;
+  color: #444;
+}
+
+/* ===== CATÁLOGO ===== */
+main {
+  max-width: 1250px;
+  margin: auto;
+  padding: 55px 5%;
+}
+
+.seccion-titulo {
+  border-bottom: 3px solid black;
+  padding-bottom: 12px;
+  font-size: clamp(26px, 5vw, 43px);
+  font-weight: 900;
+  letter-spacing: -2px;
+}
+
+.buscador {
+  width: 100%;
+  padding: 16px;
+  border: 2px solid black;
+  background: white;
+  margin: 20px 0 30px;
+  outline-color: var(--azul);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+}
+
+/* ===== TARJETAS ===== */
+.card {
+  background: white;
+  border: 2px solid black;
+  box-shadow: 6px 6px 0 black;
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: 6px 6px 0 var(--azul);
+  transform: translateY(-3px);
+}
+
+.card-barra {
+  background: black;
+  color: white;
+  padding: 8px;
+  font: 12px monospace;
+}
+
+.retrato {
+  width: 100%;
+  height: 260px;
+  background: #e8e8e8;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 2px solid black;
+}
+
+.retrato img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+}
+
+.retrato-fondo {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 15px;
+  text-align: center;
+  color: var(--azul);
+  font-size: 28px;
+  font-weight: 900;
+  overflow-wrap: anywhere;
+}
+
+.card-contenido { padding: 18px; }
+
+.card h3 {
+  margin: 0 0 8px;
+  font-size: 25px;
+  letter-spacing: -1px;
+}
+
+.meta {
+  color: var(--azul);
+  font: bold 12px monospace;
+}
+
+.card p {
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 65px;
+}
+
+.boton {
+  background: black;
+  color: white;
+  border: 2px solid black;
+  padding: 12px;
+  width: 100%;
+  font-weight: bold;
+}
+
+.boton:hover {
+  background: var(--azul);
+  border-color: var(--azul);
+}
+
+/* ===== VENTANA DE GUÍA ===== */
+#guia {
+  display: none;
+  background: white;
+  border: 3px solid black;
+  box-shadow: 9px 9px 0 var(--azul);
+  margin-top: 55px;
+}
+
+.guia-barra {
+  background: black;
+  color: white;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  font: bold 13px monospace;
+}
+
+.cerrar {
+  background: white;
+  color: black;
+  border: none;
+  padding: 3px 10px;
+  font-weight: bold;
+}
+
+.guia-contenido {
+  padding: clamp(18px, 4vw, 35px);
+}
+
+.guia-cabecera {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.guia-cabecera img {
+  width: 145px;
+  height: 170px;
+  object-fit: cover;
+  border: 2px solid black;
+  background: #eee;
+}
+
+.guia-cabecera h2 {
+  font-size: clamp(32px, 6vw, 60px);
+  margin: 10px 0;
+  letter-spacing: -3px;
+}
+
+.guia-contenido h3 {
+  font-size: 23px;
+  border-bottom: 2px solid black;
+  padding-bottom: 9px;
+  margin-top: 35px;
+}
+
+/* ===== EQUIPOS ===== */
+.equipos {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.equipo {
+  border: 2px solid black;
+  background: #fafafa;
+  padding: 15px;
+}
+
+.equipo-titulo {
+  color: var(--azul);
+  font-weight: 900;
+  margin-bottom: 14px;
+}
+
+.integrantes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.integrante {
+  background: white;
+  border: 1px solid black;
+  padding: 12px;
+  min-height: 65px;
+  font-size: 13px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+/* ===== EIDOLONES ===== */
+.eidolones {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(190px, 1fr));
+  gap: 15px;
+}
+
+.eidolon {
+  border: 2px solid black;
+  padding: 18px;
+}
+
+.eidolon.destacado {
+  border-color: var(--azul);
+  box-shadow: 5px 5px 0 var(--azul);
+}
+
+.nivel {
+  display: inline-block;
+  background: black;
+  color: white;
+  padding: 6px 13px;
+  font-weight: 900;
+}
+
+.destacado .nivel {
+  background: var(--azul);
+}
+
+.eidolon p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+footer {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 28px;
+  font: 12px monospace;
+}
+
+@media(max-width:600px) {
+  header { padding: 14px; }
+  .hero { padding: 25px 15px 40px; }
+  main { padding: 35px 15px; }
+  .hero h1 { letter-spacing: -3px; }
+  .ventana { box-shadow: 5px 5px var(--azul); }
+}
+</style>
 </head>
+
 <body>
-  <header>
-    <nav class="wrap">
-      <div class="brand">✦ ASTRAL GUIDES</div>
-      <a href="#personajes">Explorar personajes</a>
-    </nav>
-  </header>
-  <main class="wrap">
-    <section class="hero">
-      <div class="eyebrow">HONKAI: STAR RAIL · GUÍAS DE PERSONAJES</div>
-      <h1>Prepara tu próximo equipo estelar.</h1>
-      <p>Consulta composiciones de equipo, prioridades de inversión y recomendaciones de eidolones en un solo lugar.</p>
-      <div class="note">⚠️ Proyecto de demostración: los equipos y las valoraciones de eidolones son ejemplos para aprender a editar la página, no guías verificadas del metajuego.</div>
-    </section>
 
-    <section id="personajes" aria-labelledby="titulo-personajes">
-      <h2 id="titulo-personajes">Personajes</h2>
-      <p class="section-intro">Escribe un nombre o selecciona una Vía. Después pulsa «Ver guía».</p>
-      <div class="toolbar">
-        <input id="busqueda" type="search" placeholder="Buscar un personaje..." aria-label="Buscar personajes">
-        <select id="filtro" aria-label="Filtrar por Vía">
-          <option value="Todas">Todas las Vías</option>
-          <option value="Destrucción">Destrucción</option>
-          <option value="Cacería">Cacería</option>
-          <option value="Erudición">Erudición</option>
-          <option value="Armonía">Armonía</option>
-          <option value="Nihilidad">Nihilidad</option>
-          <option value="Conservación">Conservación</option>
-          <option value="Abundancia">Abundancia</option>
-          <option value="Reminiscencia">Reminiscencia</option>
-        </select>
-      </div>
-      <div id="tarjetas" class="grid"></div>
-      <p id="empty" hidden>No se encontraron personajes con esos filtros.</p>
-    </section>
+<header>
+  <div class="logo">
+    <span>AF_</span> ASTRAL FILES
+  </div>
+  <a href="#personajes">CHARACTER INDEX ↗</a>
+</header>
 
-    <section id="guia" class="guide" hidden aria-live="polite">
-      <div class="guide-heading">
+<section class="hero">
+
+  <div class="etiqueta">
+    HONKAI: STAR RAIL // CHARACTER DATABASE
+  </div>
+
+  <!-- ==========================================
+       CAMBIAR IMAGEN DEL BANNER AQUÍ
+
+       Sube una imagen llamada banner.jpg
+       al mismo lugar que index.html.
+
+       Tamaño recomendado: 1500 x 500 píxeles.
+       También puedes poner una URL directa.
+       ========================================== -->
+
+  <div class="ventana">
+    <div class="ventana-barra">
+      <span>FILE_00 / COVER.JPG</span>
+      <span>— □ ×</span>
+    </div>
+
+    <div class="banner-area">
+      <div class="banner-fondo">ASTRAL / FILES</div>
+
+      <img
+        src="banner.jpg"
+        alt="Banner de Astral Files"
+        onerror="this.style.display='none'"
+      >
+    </div>
+  </div>
+
+  <div class="etiqueta">
+    [ ARCHIVE SYSTEM // VERSION 01 ]
+  </div>
+
+  <h1>ASTRAL<br><span>FILES.</span></h1>
+
+  <p>
+    Archivo de personajes de Honkai: Star Rail.
+    Explora composiciones recomendadas, sinergias
+    y prioridades de inversión vertical para
+    optimizar tus equipos.
+  </p>
+
+</section>
+
+<main>
+
+  <section id="personajes">
+
+    <div class="seccion-titulo">
+      CHARACTER INDEX_
+    </div>
+
+    <input
+      class="buscador"
+      id="busqueda"
+      type="search"
+      placeholder="SEARCH CHARACTER..."
+    >
+
+    <div class="grid" id="tarjetas"></div>
+
+  </section>
+
+  <section id="guia">
+
+    <div class="guia-barra">
+      <span>CHARACTER_PROFILE.EXE</span>
+      <button class="cerrar" onclick="cerrarGuia()">
+        × CLOSE
+      </button>
+    </div>
+
+    <div class="guia-contenido">
+
+      <div class="guia-cabecera">
+        <img id="imagenGuia" alt="Retrato del personaje"
+             onerror="this.style.display='none'">
+
         <div>
-          <div class="eyebrow">GUÍA DE PERSONAJE</div>
-          <h2 id="guia-nombre"></h2>
-          <p id="guia-descripcion"></p>
+          <div class="etiqueta">PERSONAL FILE</div>
+          <h2 id="nombreGuia"></h2>
+          <p id="descripcionGuia"></p>
         </div>
-        <button id="cerrar" type="button" class="close">✕ Cerrar</button>
       </div>
-      <h3>Equipos sugeridos</h3>
-      <div id="guia-equipos"></div>
-      <h3>Inversión vertical: eidolones</h3>
-      <p>La inversión vertical consiste en mejorar un mismo personaje, por ejemplo, consiguiendo más copias para desbloquear sus eidolones.</p>
-      <div id="guia-eidolones" class="eidolons"></div>
-    </section>
-  </main>
-  <footer><div class="wrap">Astral Guides · Proyecto de fans no oficial. Honkai: Star Rail pertenece a sus respectivos titulares.</div></footer>
-  <script>
-    // =============================================================
-    // EDITA AQUÍ TUS PERSONAJES. Cada objeto representa una guía.
-    // Las recomendaciones de abajo son ejemplos FICTICIOS.
-    // =============================================================
-    const personajes = [
+
+      <h3>01 / EQUIPOS SUGERIDOS</h3>
+      <div class="equipos" id="equiposGuia"></div>
+
+      <h3>02 / INVERSIÓN VERTICAL</h3>
+      <p>
+        Evaluación de las prioridades de inversión
+        mediante eidolones.
+      </p>
+      <div class="eidolones" id="eidolonesGuia"></div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  ASTRAL FILES © FAN PROJECT /
+  HONKAI: STAR RAIL /
+  UNOFFICIAL CHARACTER ARCHIVE
+</footer>
+
+<script>
+
+/* =============================================
+   PERSONAJES Y SUS IMÁGENES
+
+   CAMBIA LOS NOMBRES DE LOS ARCHIVOS .jpg
+   O COLOCA EN SU LUGAR UN LINK DIRECTO HTTPS.
+
+   ¡PUEDES EDITAR LOS DATOS DE CADA PERSONAJE!
+   ============================================= */
+
+const personajes = [
+
+  {
+    nombre: "Phainon",
+    via: "Destrucción",
+    elemento: "Físico",
+
+    // CAMBIAR IMAGEN DE PHAINON AQUÍ
+    imagen: "phainon.jpg",
+
+    resumen: "Atacante principal orientado a composiciones de alta inversión.",
+
+    descripcion:
+      "Phainon desempeña el papel de DPS principal. " +
+      "Su inversión se centra en maximizar su rendimiento ofensivo.",
+
+    equipos: [
       {
-        nombre: "Dan Heng",
-        via: "Cacería",
-        elemento: "Viento",
-        icono: "🌪️",
-        resumen: "Atacante de objetivo único. Ejemplo de guía inicial.",
-        descripcion: "Guía de ejemplo para entender cómo presentar un DPS, sus aliados y su inversión.",
-        equipos: [
-          { nombre: "Equipo equilibrado", integrantes: ["Dan Heng", "Asta", "Pela", "Natasha"], nota: "Ejemplo: atacante, apoyos y personaje de supervivencia." },
-          { nombre: "Equipo alternativo", integrantes: ["Dan Heng", "Tingyun", "March 7th", "Natasha"], nota: "Ejemplo de composición con apoyo y defensa." }
-        ],
-        eidolones: [
-          { nivel: "E0", opinion: "Punto de partida: evaluar el funcionamiento base." },
-          { nivel: "E1", opinion: "Revisar si el beneficio justifica la inversión." },
-          { nivel: "E2", opinion: "Comparar con invertir en otro personaje." },
-          { nivel: "E6", opinion: "Meta de inversión alta; no necesaria para empezar." }
-        ]
-      },
-      {
-        nombre: "Himeko",
-        via: "Erudición",
-        elemento: "Fuego",
-        icono: "🔥",
-        resumen: "Atacante con potencial contra varios enemigos.",
-        descripcion: "Guía ilustrativa de una atacante enfocada en situaciones con múltiples enemigos.",
-        equipos: [
-          { nombre: "Equipo contra grupos", integrantes: ["Himeko", "Herta", "Asta", "Natasha"], nota: "Ejemplo orientado a daño contra grupos y supervivencia." },
-          { nombre: "Equipo con soporte", integrantes: ["Himeko", "Pela", "Tingyun", "Lynx"], nota: "Alternativa ficticia para comparar apoyos." }
-        ],
-        eidolones: [
-          { nivel: "E0", opinion: "Base con la que evaluar al personaje." },
-          { nivel: "E1", opinion: "Estudiar la mejora antes de recomendarla." },
-          { nivel: "E2", opinion: "Valorar el costo frente a otras mejoras." },
-          { nivel: "E6", opinion: "Objetivo de inversión muy elevada." }
-        ]
-      },
-      {
-        nombre: "March 7th",
-        via: "Conservación",
-        elemento: "Hielo",
-        icono: "❄️",
-        resumen: "Personaje defensivo de ejemplo para equipos que necesitan protección.",
-        descripcion: "Esta ficha se refiere a March 7th de Conservación, no a sus otras variantes.",
-        equipos: [
-          { nombre: "Equipo inicial", integrantes: ["Dan Heng", "Asta", "March 7th", "Natasha"], nota: "Ejemplo con dos personajes dedicados a supervivencia." },
-          { nombre: "Equipo alternativo", integrantes: ["Himeko", "Pela", "March 7th", "Lynx"], nota: "Composición ficticia para editar fácilmente." }
-        ],
-        eidolones: [
-          { nivel: "E0", opinion: "Revisar su utilidad defensiva base." },
-          { nivel: "E1", opinion: "Indicar aquí la mejora real del eidolón." },
-          { nivel: "E2", opinion: "Describir si la mejora altera los equipos." },
-          { nivel: "E6", opinion: "Explicar su valor para quienes invierten más." }
+        nombre: "Composición principal",
+        integrantes: [
+          "Phainon", "Cyrene", "Cerydra", "Robin"
         ]
       }
-    ];
+    ],
 
-    const tarjetas = document.getElementById("tarjetas");
-    const busqueda = document.getElementById("busqueda");
-    const filtro = document.getElementById("filtro");
-    const guia = document.getElementById("guia");
-    const empty = document.getElementById("empty");
+    eidolones: [
+      {
+        nivel: "E0",
+        texto: "Configuración base del personaje."
+      },
+      {
+        nivel: "E1",
+        texto:
+          "Inversión de baja prioridad. Su mejora no " +
+          "justifica especialmente el coste de obtenerla."
+      },
+      {
+        nivel: "E2",
+        texto:
+          "Principal objetivo de inversión vertical. " +
+          "Representa la mejora más recomendable.",
+        destacado: true
+      }
+    ]
+  },
 
-    function agregarTexto(etiqueta, texto, clase = "") {
-      const nodo = document.createElement(etiqueta);
-      nodo.textContent = texto;
-      if (clase) nodo.className = clase;
-      return nodo;
-    }
+  {
+    nombre: "Cyrene",
+    via: "Reminiscencia",
+    elemento: "Hielo",
 
-    function mostrarTarjetas() {
-      tarjetas.replaceChildren();
-      const consulta = busqueda.value.trim().toLocaleLowerCase("es");
-      const via = filtro.value;
-      const encontrados = personajes.filter(personaje =>
-        personaje.nombre.toLocaleLowerCase("es").includes(consulta) &&
-        (via === "Todas" || personaje.via === via)
+    // CAMBIAR IMAGEN DE CYRENE AQUÍ
+    imagen: "cyrene.jpg",
+
+    resumen: "Apoyo especializado en composiciones de Reminiscencia.",
+
+    descripcion:
+      "Cyrene destaca por su integración en equipos " +
+      "centrados en las sinergias de Reminiscencia.",
+
+    equipos: [
+      {
+        nombre: "Mono-Reminiscencia",
+        integrantes: [
+          "Castorice", "Evernight",
+          "Cyrene", "Hyacine"
+        ]
+      },
+      {
+        nombre: "Composición alternativa",
+        integrantes: [
+          "Evernight", "Cyrene",
+          "Hyacine", "Robin Summeretto"
+        ]
+      }
+    ],
+
+    eidolones: [
+      {
+        nivel: "E0",
+        texto: "Base funcional del personaje."
+      },
+      {
+        nivel: "E1",
+        texto:
+          "Prioridad reducida. No constituye una mejora " +
+          "especialmente recomendable."
+      },
+      {
+        nivel: "E2",
+        texto:
+          "Incrementa su rendimiento en composiciones " +
+          "fuera de mono-Reminiscencia. Sin embargo, " +
+          "no es necesaria dentro de equipos " +
+          "centrados exclusivamente en dicha Vía.",
+        destacado: true
+      }
+    ]
+  },
+
+  {
+    nombre: "Cerydra",
+    via: "Armonía",
+    elemento: "Viento",
+
+    // CAMBIAR IMAGEN DE CERYDRA AQUÍ
+    imagen: "cerydra.jpg",
+
+    resumen: "Personaje de apoyo para composiciones con Phainon y Anaxa.",
+
+    descripcion:
+      "Cerydra proporciona apoyo a distintos " +
+      "atacantes principales y dispone de una " +
+      "prioridad clara de inversión vertical.",
+
+    equipos: [
+      {
+        nombre: "Equipo con Phainon",
+        integrantes: [
+          "Phainon", "Cyrene",
+          "Cerydra", "Robin"
+        ]
+      },
+      {
+        nombre: "Equipo con Anaxa",
+        integrantes: [
+          "Anaxa", "Cyrene",
+          "Cerydra", "Robin"
+        ]
+      }
+    ],
+
+    eidolones: [
+      {
+        nivel: "E0",
+        texto: "Configuración base del personaje."
+      },
+      {
+        nivel: "E1",
+        texto:
+          "Eidolón de mayor valor relativo. " +
+          "Constituye la inversión más recomendable.",
+        destacado: true
+      },
+      {
+        nivel: "E2",
+        texto:
+          "Mejora adicional de carácter opcional. " +
+          "No resulta imprescindible para " +
+          "aprovechar su potencial."
+      }
+    ]
+  },
+
+  {
+    nombre: "Robin Summeretto",
+    via: "Armonía",
+    elemento: "Físico",
+
+    // CAMBIAR IMAGEN DE ROBIN SUMMERETTO AQUÍ
+    imagen: "robin-summeretto.jpg",
+
+    resumen: "Apoyo con mejoras relevantes de inversión vertical.",
+
+    descripcion:
+      "Robin Summeretto ofrece distintas posibilidades " +
+      "de inversión. Su valor debe evaluarse según " +
+      "las necesidades de cada composición.",
+
+    equipos: [
+      {
+        nombre: "Equipo recomendado",
+        integrantes: [
+          "Himeko Nova", "Robin Summeretto",
+          "Sparkle", "Dan Heng Permansor Terrae"
+        ]
+      }
+    ],
+
+    eidolones: [
+      {
+        nivel: "E0",
+        texto: "Configuración base del personaje."
+      },
+      {
+        nivel: "E1",
+        texto:
+          "Mejora de elevado valor general. Sin embargo, " +
+          "su contribución específica dentro de " +
+          "composiciones de Phainon es limitada."
+      },
+      {
+        nivel: "E2",
+        texto:
+          "Mejora significativa y especialmente " +
+          "recomendable si se busca potenciar " +
+          "un equipo centrado en Phainon.",
+        destacado: true
+      }
+    ]
+  }
+
+];
+
+/* =============================================
+   FUNCIONES DE LA PÁGINA
+
+   NO NECESITAS MODIFICAR ESTA PARTE.
+   ============================================= */
+
+const contenedor = document.getElementById("tarjetas");
+const buscador = document.getElementById("busqueda");
+
+function crearElemento(tipo, clase, texto) {
+  const elemento = document.createElement(tipo);
+  if (clase) elemento.className = clase;
+  if (texto !== undefined) elemento.textContent = texto;
+  return elemento;
+}
+
+function mostrarPersonajes() {
+
+  contenedor.replaceChildren();
+
+  const busqueda = buscador.value.toLowerCase();
+
+  personajes
+    .filter(p => p.nombre.toLowerCase().includes(busqueda))
+    .forEach((p, indice) => {
+
+      const card = crearElemento("article", "card");
+
+      const barra = crearElemento(
+        "div", "card-barra",
+        "FILE / " + p.nombre.toUpperCase()
       );
-      empty.hidden = encontrados.length !== 0;
-      encontrados.forEach(personaje => {
-        const tarjeta = agregarTexto("article", "", "card");
-        tarjeta.append(agregarTexto("div", personaje.icono, "avatar"));
-        tarjeta.append(agregarTexto("h3", personaje.nombre));
-        tarjeta.append(agregarTexto("p", `${personaje.via} · ${personaje.elemento}`, "meta"));
-        tarjeta.append(agregarTexto("p", personaje.resumen, "summary"));
-        const boton = agregarTexto("button", "Ver guía", "btn");
-        boton.type = "button";
-        boton.addEventListener("click", () => mostrarGuia(personaje));
-        tarjeta.append(boton);
-        tarjetas.append(tarjeta);
-      });
-    }
 
-    function mostrarGuia(personaje) {
-      document.getElementById("guia-nombre").textContent = personaje.nombre;
-      document.getElementById("guia-descripcion").textContent = personaje.descripcion;
-      const equipos = document.getElementById("guia-equipos");
-      const eidolones = document.getElementById("guia-eidolones");
-      equipos.replaceChildren();
-      eidolones.replaceChildren();
-      personaje.equipos.forEach(equipo => {
-        const bloque = agregarTexto("div", "", "team");
-        bloque.append(agregarTexto("strong", equipo.nombre));
-        bloque.append(agregarTexto("div", equipo.integrantes.join(" + ")));
-        bloque.append(agregarTexto("span", equipo.nota));
-        equipos.append(bloque);
-      });
-      personaje.eidolones.forEach(eidolon => {
-        const bloque = agregarTexto("div", "", "eidolon");
-        bloque.append(agregarTexto("b", eidolon.nivel));
-        bloque.append(agregarTexto("p", eidolon.opinion));
-        eidolones.append(bloque);
-      });
-      guia.hidden = false;
-      guia.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+      const retrato = crearElemento("div", "retrato");
+      const fondo = crearElemento(
+        "div", "retrato-fondo", p.nombre
+      );
 
-    busqueda.addEventListener("input", mostrarTarjetas);
-    filtro.addEventListener("change", mostrarTarjetas);
-    document.getElementById("cerrar").addEventListener("click", () => {
-      guia.hidden = true;
-      document.getElementById("personajes").scrollIntoView({ behavior: "smooth" });
+      const img = document.createElement("img");
+      img.src = p.imagen;
+      img.alt = "Retrato de " + p.nombre;
+      img.loading = "lazy";
+      img.onerror = () => img.style.display = "none";
+
+      retrato.append(fondo, img);
+
+      const contenido = crearElemento(
+        "div", "card-contenido"
+      );
+
+      contenido.append(
+        crearElemento("h3", "", p.nombre),
+        crearElemento(
+          "div", "meta",
+          p.via.toUpperCase() + " / " + p.elemento.toUpperCase()
+        ),
+        crearElemento("p", "", p.resumen)
+      );
+
+      const boton = crearElemento(
+        "button", "boton", "OPEN PROFILE →"
+      );
+
+      boton.onclick = () => mostrarGuia(p);
+      contenido.append(boton);
+
+      card.append(barra, retrato, contenido);
+      contenedor.append(card);
     });
-    mostrarTarjetas();
-  </script>
+}
+
+function mostrarGuia(p) {
+
+  document.getElementById("nombreGuia").textContent =
+    p.nombre;
+
+  document.getElementById("descripcionGuia").textContent =
+    p.descripcion;
+
+  const imagen = document.getElementById("imagenGuia");
+  imagen.style.display = "block";
+  imagen.src = p.imagen;
+
+  const equipos = document.getElementById("equiposGuia");
+  const eidolones = document.getElementById("eidolonesGuia");
+
+  equipos.replaceChildren();
+  eidolones.replaceChildren();
+
+  p.equipos.forEach(equipo => {
+
+    const caja = crearElemento("div", "equipo");
+
+    caja.append(
+      crearElemento(
+        "div", "equipo-titulo", equipo.nombre
+      )
+    );
+
+    const miembros = crearElemento(
+      "div", "integrantes"
+    );
+
+    equipo.integrantes.forEach(nombre => {
+      miembros.append(
+        crearElemento("div", "integrante", nombre)
+      );
+    });
+
+    caja.append(miembros);
+    equipos.append(caja);
+  });
+
+  p.eidolones.forEach(e => {
+
+    const caja = crearElemento(
+      "div",
+      e.destacado ? "eidolon destacado" : "eidolon"
+    );
+
+    caja.append(
+      crearElemento("span", "nivel", e.nivel),
+      crearElemento("p", "", e.texto)
+    );
+
+    eidolones.append(caja);
+  });
+
+  const guia = document.getElementById("guia");
+  guia.style.display = "block";
+
+  guia.scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+}
+
+function cerrarGuia() {
+  document.getElementById("guia").style.display = "none";
+
+  document.getElementById("personajes").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+buscador.addEventListener("input", mostrarPersonajes);
+
+mostrarPersonajes();
+
+</script>
 </body>
 </html>
