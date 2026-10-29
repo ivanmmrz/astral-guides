@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Guías de personajes, equipos y eidolones de Honkai: Star Rail.">
+  <title>Astral Guides | Honkai: Star Rail</title>
+  <style>
+    :root { color-scheme: dark; --bg:#0b1020; --panel:#171e32; --panel2:#202942; --border:#35405d; --gold:#f2d28e; --text:#f3f5ff; --muted:#aeb9d1; --accent:#a4b9ff; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:radial-gradient(circle at top right,#233456 0,transparent 37%),var(--bg); color:var(--text); font-family:system-ui,-apple-system,Segoe UI,sans-serif; line-height:1.55; min-height:100vh; }
+    .wrap { max-width:1100px; margin:0 auto; padding:0 22px; }
+    header { border-bottom:1px solid var(--border); background:#0b1020c9; }
+    nav { display:flex; align-items:center; justify-content:space-between; gap:14px; padding:18px 0; flex-wrap:wrap; }
+    .brand { font-weight:800; letter-spacing:.5px; color:var(--gold); font-size:1.15rem; }
+    nav a { color:var(--muted); text-decoration:none; font-size:.95rem; }
+    nav a:hover { color:white; }
+    .hero { padding:68px 0 48px; }
+    .eyebrow { color:var(--gold); letter-spacing:2px; font-weight:700; font-size:.77rem; }
+    h1 { font-size:clamp(2rem,6vw,3.8rem); line-height:1.12; margin:12px 0 14px; }
+    .hero p { color:var(--muted); max-width:690px; font-size:1.08rem; }
+    .note { background:#342a28; border:1px solid #8e7050; padding:12px 16px; border-radius:12px; font-size:.91rem; color:#f7e4be; margin:20px 0; }
+    h2 { margin:0 0 8px; font-size:1.65rem; }
+    .section-intro { color:var(--muted); margin:0 0 20px; }
+    .toolbar { display:flex; gap:12px; margin:24px 0; flex-wrap:wrap; }
+    input, select { background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:14px; color:var(--text); font:inherit; }
+    input { flex:2; min-width:220px; }
+    select { flex:1; min-width:190px; }
+    input:focus,select:focus,button:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(245px,1fr)); gap:18px; }
+    .card { background:linear-gradient(160deg,var(--panel2),var(--panel)); border:1px solid var(--border); border-radius:17px; padding:22px; display:flex; flex-direction:column; min-height:255px; }
+    .card:hover { border-color:var(--gold); }
+    .avatar { width:57px; height:57px; display:grid; place-items:center; border-radius:15px; background:#39476a; font-size:1.75rem; margin-bottom:14px; }
+    .card h3 { margin:0 0 5px; font-size:1.25rem; }
+    .meta { color:var(--gold); font-size:.87rem; margin:0 0 12px; }
+    .card p.summary { color:var(--muted); margin:0 0 20px; flex:1; font-size:.93rem; }
+    button { cursor:pointer; font:inherit; }
+    .btn { border:0; background:var(--gold); color:#242033; font-weight:750; border-radius:10px; padding:11px 17px; }
+    .btn:hover { background:#ffe5a9; }
+    .guide { background:var(--panel); border:1px solid var(--border); border-radius:20px; padding:clamp(20px,4vw,36px); margin:34px 0 58px; }
+    .guide[hidden], #empty[hidden] { display:none; }
+    .guide-heading { display:flex; justify-content:space-between; align-items:start; gap:14px; flex-wrap:wrap; }
+    .guide h3 { color:var(--gold); margin:24px 0 10px; }
+    .guide p { color:var(--muted); }
+    .team { background:var(--panel2); border:1px solid var(--border); padding:16px; border-radius:13px; margin-bottom:12px; }
+    .team strong { color:white; }
+    .team span { display:block; color:var(--muted); margin-top:5px; }
+    .eidolons { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; }
+    .eidolon { background:var(--panel2); border:1px solid var(--border); border-radius:12px; padding:15px; }
+    .eidolon b { color:var(--gold); }
+    .eidolon p { margin:7px 0 0; font-size:.92rem; }
+    .guide .close { background:transparent; border:1px solid var(--border); color:var(--text); padding:8px 12px; border-radius:10px; }
+    footer { border-top:1px solid var(--border); padding:25px 0; color:var(--muted); font-size:.88rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="wrap">
+      <div class="brand">✦ ASTRAL GUIDES</div>
+      <a href="#personajes">Explorar personajes</a>
+    </nav>
+  </header>
+  <main class="wrap">
+    <section class="hero">
+      <div class="eyebrow">HONKAI: STAR RAIL · GUÍAS DE PERSONAJES</div>
+      <h1>Prepara tu próximo equipo estelar.</h1>
+      <p>Consulta composiciones de equipo, prioridades de inversión y recomendaciones de eidolones en un solo lugar.</p>
+      <div class="note">⚠️ Proyecto de demostración: los equipos y las valoraciones de eidolones son ejemplos para aprender a editar la página, no guías verificadas del metajuego.</div>
+    </section>
+
+    <section id="personajes" aria-labelledby="titulo-personajes">
+      <h2 id="titulo-personajes">Personajes</h2>
+      <p class="section-intro">Escribe un nombre o selecciona una Vía. Después pulsa «Ver guía».</p>
+      <div class="toolbar">
+        <input id="busqueda" type="search" placeholder="Buscar un personaje..." aria-label="Buscar personajes">
+        <select id="filtro" aria-label="Filtrar por Vía">
+          <option value="Todas">Todas las Vías</option>
+          <option value="Destrucción">Destrucción</option>
+          <option value="Cacería">Cacería</option>
+          <option value="Erudición">Erudición</option>
+          <option value="Armonía">Armonía</option>
+          <option value="Nihilidad">Nihilidad</option>
+          <option value="Conservación">Conservación</option>
+          <option value="Abundancia">Abundancia</option>
+          <option value="Reminiscencia">Reminiscencia</option>
+        </select>
+      </div>
+      <div id="tarjetas" class="grid"></div>
+      <p id="empty" hidden>No se encontraron personajes con esos filtros.</p>
+    </section>
+
+    <section id="guia" class="guide" hidden aria-live="polite">
+      <div class="guide-heading">
+        <div>
+          <div class="eyebrow">GUÍA DE PERSONAJE</div>
+          <h2 id="guia-nombre"></h2>
+          <p id="guia-descripcion"></p>
+        </div>
+        <button id="cerrar" type="button" class="close">✕ Cerrar</button>
+      </div>
+      <h3>Equipos sugeridos</h3>
+      <div id="guia-equipos"></div>
+      <h3>Inversión vertical: eidolones</h3>
+      <p>La inversión vertical consiste en mejorar un mismo personaje, por ejemplo, consiguiendo más copias para desbloquear sus eidolones.</p>
+      <div id="guia-eidolones" class="eidolons"></div>
+    </section>
+  </main>
+  <footer><div class="wrap">Astral Guides · Proyecto de fans no oficial. Honkai: Star Rail pertenece a sus respectivos titulares.</div></footer>
+  <script>
+    // =============================================================
+    // EDITA AQUÍ TUS PERSONAJES. Cada objeto representa una guía.
+    // Las recomendaciones de abajo son ejemplos FICTICIOS.
+    // =============================================================
+    const personajes = [
+      {
+        nombre: "Dan Heng",
+        via: "Cacería",
+        elemento: "Viento",
+        icono: "🌪️",
+        resumen: "Atacante de objetivo único. Ejemplo de guía inicial.",
+        descripcion: "Guía de ejemplo para entender cómo presentar un DPS, sus aliados y su inversión.",
+        equipos: [
+          { nombre: "Equipo equilibrado", integrantes: ["Dan Heng", "Asta", "Pela", "Natasha"], nota: "Ejemplo: atacante, apoyos y personaje de supervivencia." },
+          { nombre: "Equipo alternativo", integrantes: ["Dan Heng", "Tingyun", "March 7th", "Natasha"], nota: "Ejemplo de composición con apoyo y defensa." }
+        ],
+        eidolones: [
+          { nivel: "E0", opinion: "Punto de partida: evaluar el funcionamiento base." },
+          { nivel: "E1", opinion: "Revisar si el beneficio justifica la inversión." },
+          { nivel: "E2", opinion: "Comparar con invertir en otro personaje." },
+          { nivel: "E6", opinion: "Meta de inversión alta; no necesaria para empezar." }
+        ]
+      },
+      {
+        nombre: "Himeko",
+        via: "Erudición",
+        elemento: "Fuego",
+        icono: "🔥",
+        resumen: "Atacante con potencial contra varios enemigos.",
+        descripcion: "Guía ilustrativa de una atacante enfocada en situaciones con múltiples enemigos.",
+        equipos: [
+          { nombre: "Equipo contra grupos", integrantes: ["Himeko", "Herta", "Asta", "Natasha"], nota: "Ejemplo orientado a daño contra grupos y supervivencia." },
+          { nombre: "Equipo con soporte", integrantes: ["Himeko", "Pela", "Tingyun", "Lynx"], nota: "Alternativa ficticia para comparar apoyos." }
+        ],
+        eidolones: [
+          { nivel: "E0", opinion: "Base con la que evaluar al personaje." },
+          { nivel: "E1", opinion: "Estudiar la mejora antes de recomendarla." },
+          { nivel: "E2", opinion: "Valorar el costo frente a otras mejoras." },
+          { nivel: "E6", opinion: "Objetivo de inversión muy elevada." }
+        ]
+      },
+      {
+        nombre: "March 7th",
+        via: "Conservación",
+        elemento: "Hielo",
+        icono: "❄️",
+        resumen: "Personaje defensivo de ejemplo para equipos que necesitan protección.",
+        descripcion: "Esta ficha se refiere a March 7th de Conservación, no a sus otras variantes.",
+        equipos: [
+          { nombre: "Equipo inicial", integrantes: ["Dan Heng", "Asta", "March 7th", "Natasha"], nota: "Ejemplo con dos personajes dedicados a supervivencia." },
+          { nombre: "Equipo alternativo", integrantes: ["Himeko", "Pela", "March 7th", "Lynx"], nota: "Composición ficticia para editar fácilmente." }
+        ],
+        eidolones: [
+          { nivel: "E0", opinion: "Revisar su utilidad defensiva base." },
+          { nivel: "E1", opinion: "Indicar aquí la mejora real del eidolón." },
+          { nivel: "E2", opinion: "Describir si la mejora altera los equipos." },
+          { nivel: "E6", opinion: "Explicar su valor para quienes invierten más." }
+        ]
+      }
+    ];
+
+    const tarjetas = document.getElementById("tarjetas");
+    const busqueda = document.getElementById("busqueda");
+    const filtro = document.getElementById("filtro");
+    const guia = document.getElementById("guia");
+    const empty = document.getElementById("empty");
+
+    function agregarTexto(etiqueta, texto, clase = "") {
+      const nodo = document.createElement(etiqueta);
+      nodo.textContent = texto;
+      if (clase) nodo.className = clase;
+      return nodo;
+    }
+
+    function mostrarTarjetas() {
+      tarjetas.replaceChildren();
+      const consulta = busqueda.value.trim().toLocaleLowerCase("es");
+      const via = filtro.value;
+      const encontrados = personajes.filter(personaje =>
+        personaje.nombre.toLocaleLowerCase("es").includes(consulta) &&
+        (via === "Todas" || personaje.via === via)
+      );
+      empty.hidden = encontrados.length !== 0;
+      encontrados.forEach(personaje => {
+        const tarjeta = agregarTexto("article", "", "card");
+        tarjeta.append(agregarTexto("div", personaje.icono, "avatar"));
+        tarjeta.append(agregarTexto("h3", personaje.nombre));
+        tarjeta.append(agregarTexto("p", `${personaje.via} · ${personaje.elemento}`, "meta"));
+        tarjeta.append(agregarTexto("p", personaje.resumen, "summary"));
+        const boton = agregarTexto("button", "Ver guía", "btn");
+        boton.type = "button";
+        boton.addEventListener("click", () => mostrarGuia(personaje));
+        tarjeta.append(boton);
+        tarjetas.append(tarjeta);
+      });
+    }
+
+    function mostrarGuia(personaje) {
+      document.getElementById("guia-nombre").textContent = personaje.nombre;
+      document.getElementById("guia-descripcion").textContent = personaje.descripcion;
+      const equipos = document.getElementById("guia-equipos");
+      const eidolones = document.getElementById("guia-eidolones");
+      equipos.replaceChildren();
+      eidolones.replaceChildren();
+      personaje.equipos.forEach(equipo => {
+        const bloque = agregarTexto("div", "", "team");
+        bloque.append(agregarTexto("strong", equipo.nombre));
+        bloque.append(agregarTexto("div", equipo.integrantes.join(" + ")));
+        bloque.append(agregarTexto("span", equipo.nota));
+        equipos.append(bloque);
+      });
+      personaje.eidolones.forEach(eidolon => {
+        const bloque = agregarTexto("div", "", "eidolon");
+        bloque.append(agregarTexto("b", eidolon.nivel));
+        bloque.append(agregarTexto("p", eidolon.opinion));
+        eidolones.append(bloque);
+      });
+      guia.hidden = false;
+      guia.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    busqueda.addEventListener("input", mostrarTarjetas);
+    filtro.addEventListener("change", mostrarTarjetas);
+    document.getElementById("cerrar").addEventListener("click", () => {
+      guia.hidden = true;
+      document.getElementById("personajes").scrollIntoView({ behavior: "smooth" });
+    });
+    mostrarTarjetas();
+  </script>
+</body>
+</html>
